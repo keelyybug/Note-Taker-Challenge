@@ -1,19 +1,19 @@
-const api = require('express').Router();
+const router = require('express').Router();
 const { readFromFile, readAndAppend } = require('../helpers/fsUtils');
 const uuid = require('../helpers/uuid');
 
 
 
-app.get('/', (req, res) =>
+router.get('/', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/index.html'))
 );
 
-api.get('/notes', (req, res) => {
+router.get('/notes', (req, res) => {
     console.info(`Request to add note received.`);
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
   });
   
-api.post('/notes', (req, res) => {
+router.post('/notes', (req, res) => {
 
     console.info(`POSTED`);
 
@@ -33,10 +33,10 @@ api.post('/notes', (req, res) => {
     }
   });
 
-  api.delete('/notes/:id', (req, res) =>{
+  router.delete('/notes/:id', (req, res) =>{
   deleteNote(newNote, req.params.id);
   res.json(newNote);  
 });
 
 
-module.exports = api;
+module.exports = router;

@@ -1,7 +1,7 @@
 const express = require('express');
 const app = require('./routes/index.js');
-const apiRoutes = require('./routes/apiRoutes');
-const htmlRoutes = require('./routes/htmlRoutes')
+const apiRoutes = require('./routes/apiRoutes/index');//do i need the index portion
+const htmlRoutes = require('./routes/htmlRoutes/index');//do i need the index portion?
 const PORT = process.env.PORT || 3001;
 
 

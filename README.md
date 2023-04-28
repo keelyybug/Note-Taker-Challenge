@@ -52,5 +52,5 @@ The following API routes were be created:
 
 ## Visuals 
 
-Below is a screenshot of my application! This is a [link]() to a tutorial video on how the back end of the application is used.
-![picture of application]()
+Below is a screenshot of my application! 
+![picture of application](Assets/11-express-homework-demo-01.png)

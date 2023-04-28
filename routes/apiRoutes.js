@@ -1,16 +1,14 @@
 const router = require('express').Router();
-const { readFromFile, readAndAppend } = require('');
+const { readFromFile, readAndAppend } = require('../helpers/fsUtils');
 const uuid = require('../helpers/uuid');
 
 
-
-router.get('/', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/index.html'))
-);
-
 router.get('/notes', (req, res) => {
-    console.info(`Request to add note received.`);
-    readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
+    console.info(`Request notes`);
+    readFromFile('./db/db.json', 'utf-8').then((data) =>{ 
+        console.log(data);
+        res.send(data);
+    });
   });
 
 router.post('/notes', (req, res) => {
